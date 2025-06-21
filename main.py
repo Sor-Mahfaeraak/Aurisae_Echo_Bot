@@ -2,7 +2,7 @@
 import os
 import discord
 
-intents = discord.Intents.default()
+intents = discord.Intents.all()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
