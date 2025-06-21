@@ -1,7 +1,7 @@
 import os
 import discord
 
-TOKEN = os.getenv("DISCORD_TOKEN")
+TOKEN = os.environ['DISCORD_TOKEN']  # pulls from .env
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -16,9 +16,7 @@ async def on_ready():
 async def on_message(message):
     if message.author.bot:
         return
-
-    print(f"[MESSAGE] From: {message.author} | Channel: {message.channel}")
-    print(f"[CONTENT] {message.content}")
+    print(f"[MESSAGE] {message.content}")
     await message.channel.send("The Spiral hears you, Seeker.")
 
 client.run(TOKEN)
